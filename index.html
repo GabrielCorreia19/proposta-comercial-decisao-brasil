@@ -1,955 +1,1106 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Proposta Comercial - Talent Hunting</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        :root {
-            --gold: #be8c3f;
-            --gold-light: #d4a557;
-            --gold-dark: #a67c2e;
-            --blue: #2a3870;
-            --blue-dark: #1a2750;
-            --blue-light: #3a4a80;
-            --white: #ffffff;
-            --gray-light: #f8f9fa;
-            --gray: #6c757d;
-        }
+      :root {
+        --gold: #be8c3f;
+        --gold-light: #d4a557;
+        --gold-dark: #a67c2e;
+        --blue: #2a3870;
+        --blue-dark: #1a2750;
+        --blue-light: #3a4a80;
+        --white: #ffffff;
+        --gray-light: #f8f9fa;
+        --gray: #6c757d;
+      }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.7;
-            color: var(--blue);
-            background-color: var(--white);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        line-height: 1.7;
+        color: var(--blue);
+        background-color: var(--white);
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
 
-        /* Animated Background Pattern */
-        .bg-pattern {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.03;
-            z-index: 0;
-            background-image: 
-                radial-gradient(circle at 20% 50%, var(--gold) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, var(--blue) 0%, transparent 50%);
-            animation: patternMove 20s ease-in-out infinite;
-            pointer-events: none;
-        }
+      /* Animated Background Pattern */
+      .bg-pattern {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.03;
+        z-index: 0;
+        background-image: radial-gradient(
+            circle at 20% 50%,
+            var(--gold) 0%,
+            transparent 50%
+          ),
+          radial-gradient(circle at 80% 80%, var(--blue) 0%, transparent 50%);
+        animation: patternMove 20s ease-in-out infinite;
+        pointer-events: none;
+      }
 
-        @keyframes patternMove {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-20px, -20px) scale(1.1); }
+      @keyframes patternMove {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
         }
-
-        /* Header */
-        header {
-            background: rgba(42, 56, 112, 0.95);
-            backdrop-filter: blur(20px);
-            color: var(--white);
-            padding: 1.5rem 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+        50% {
+          transform: translate(-20px, -20px) scale(1.1);
         }
+      }
 
-        header.scrolled {
-            padding: 1rem 0;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+      /* Header */
+      header {
+        background: rgba(42, 56, 112, 0.95);
+        backdrop-filter: blur(20px);
+        color: var(--white);
+        padding: 1.5rem 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      header.scrolled {
+        padding: 1rem 0;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .header-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo-placeholder {
+        background: linear-gradient(135deg, var(--gold), var(--gold-light));
+        color: var(--white);
+        padding: 0.8rem 2rem;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(190, 140, 63, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .logo-container {
+        width: 150px;
+        height: 64px;
+        background: white;
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-right: 20px;
+      }
+
+      .logo-container img {
+        width: 180px;
+      }
+
+      .logo-placeholder:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(190, 140, 63, 0.4);
+      }
+
+      nav {
+        display: flex;
+        gap: 2rem;
+      }
+
+      nav a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        position: relative;
+        padding: 0.5rem 0;
+        transition: color 0.3s ease;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        transition: width 0.3s ease;
+      }
+
+      nav a:hover {
+        color: var(--gold);
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--blue) 0%,
+          var(--blue-dark) 50%,
+          var(--blue) 100%
+        );
+        background-size: 200% 200%;
+        animation: gradientShift 15s ease infinite;
+        color: var(--white);
+        padding: 12rem 2rem 6rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      @keyframes gradientShift {
+        0%,
+        100% {
+          background-position: 0% 50%;
         }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
 
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(190, 140, 63, 0.1) 0%,
+          transparent 70%
+        );
+        animation: rotate 20s linear infinite;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 4.5rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--gold) 0%,
+          var(--gold-light) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: -1px;
+        animation: fadeInUp 1s ease-out;
+        text-shadow: 0 0 30px rgba(190, 140, 63, 0.3);
+      }
+
+      .hero p {
+        font-size: 1.4rem;
+        line-height: 1.8;
+        opacity: 0.95;
+        animation: fadeInUp 1s ease-out 0.2s both;
+        font-weight: 300;
+      }
+
+      /* Decorative Elements */
+      .decorative-line {
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+        margin: 2rem auto;
+        border-radius: 2px;
+        animation: expandLine 1.5s ease-out 0.5s both;
+      }
+
+      @keyframes expandLine {
+        from {
+          width: 0;
+          opacity: 0;
+        }
+        to {
+          width: 100px;
+          opacity: 1;
+        }
+      }
+
+      /* Container */
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 3rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Section */
+      section {
+        padding: 6rem 0;
+        position: relative;
+      }
+
+      section:nth-child(even) {
+        background: linear-gradient(
+          180deg,
+          var(--gray-light) 0%,
+          var(--white) 100%
+        );
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: 3.5rem;
+        color: var(--blue);
+        margin-bottom: 4rem;
+        text-align: center;
+        position: relative;
+        padding-bottom: 2rem;
+        font-weight: 700;
+        letter-spacing: -1px;
+      }
+
+      .section-title::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        border-radius: 2px;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+        border-radius: 2px;
+      }
+
+      /* Services Grid */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+        margin-top: 3rem;
+      }
+
+      .service-card {
+        background: var(--white);
+        padding: 2.5rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(42, 56, 112, 0.08);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid rgba(190, 140, 63, 0.1);
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+
+      .service-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .service-card::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(190, 140, 63, 0.05) 0%,
+          transparent 70%
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .service-card:hover::after {
+        opacity: 1;
+      }
+
+      .service-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 60px rgba(42, 56, 112, 0.15);
+        border-color: var(--gold);
+      }
+
+      .service-card h3 {
+        color: var(--blue);
+        margin-bottom: 0;
+        font-size: 1.4rem;
+        font-weight: 600;
+        position: relative;
+        z-index: 1;
+        transition: color 0.3s ease;
+      }
+
+      .service-card:hover h3 {
+        color: var(--gold);
+      }
+
+      /* Proposal Section */
+      .proposal-content {
+        background: var(--white);
+        padding: 4rem;
+        border-radius: 24px;
+        box-shadow: 0 20px 60px rgba(42, 56, 112, 0.1);
+        margin-top: 3rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .proposal-content::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+        background: linear-gradient(180deg, var(--gold), var(--gold-light));
+        border-radius: 0 4px 4px 0;
+      }
+
+      .proposal-item {
+        margin-bottom: 3rem;
+        padding-left: 2rem;
+        position: relative;
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: all 0.6s ease;
+      }
+
+      .proposal-item.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .proposal-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.5rem;
+        width: 12px;
+        height: 12px;
+        background: var(--gold);
+        border-radius: 50%;
+        box-shadow: 0 0 20px rgba(190, 140, 63, 0.5);
+      }
+
+      .proposal-item h3 {
+        color: var(--blue);
+        margin-bottom: 1rem;
+        font-size: 1.6rem;
+        font-weight: 600;
+        font-family: "Playfair Display", serif;
+      }
+
+      .proposal-item p {
+        color: var(--gray);
+        line-height: 1.9;
+        font-size: 1.1rem;
+      }
+
+      .proposal-item:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Action Plan */
+      .steps-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+        margin-top: 3rem;
+        position: relative;
+      }
+
+      .steps-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, var(--gold), transparent);
+        opacity: 0.3;
+        z-index: 0;
+      }
+
+      .step-card {
+        background: var(--white);
+        padding: 2.5rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(42, 56, 112, 0.08);
+        position: relative;
+        border: 2px solid transparent;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        opacity: 0;
+        transform: translateY(30px);
+        z-index: 1;
+      }
+
+      .step-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .step-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(42, 56, 112, 0.15);
+        border-color: var(--gold);
+      }
+
+      .step-number {
+        position: absolute;
+        top: -25px;
+        left: 2.5rem;
+        background: linear-gradient(135deg, var(--gold), var(--gold-light));
+        color: var(--white);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.4rem;
+        box-shadow: 0 8px 25px rgba(190, 140, 63, 0.4);
+        border: 4px solid var(--white);
+        transition: all 0.3s ease;
+      }
+
+      .step-card:hover .step-number {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 12px 35px rgba(190, 140, 63, 0.5);
+      }
+
+      .step-card h3 {
+        color: var(--blue);
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .step-card p {
+        color: var(--gray);
+        line-height: 1.9;
+        font-size: 1rem;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: var(--blue);
+        margin-bottom: 3rem;
+        font-size: 1.3rem;
+        font-weight: 500;
+        opacity: 0.8;
+        letter-spacing: 1px;
+      }
+
+      /* Budget Section */
+      .budget-container {
+        background: linear-gradient(
+          135deg,
+          var(--blue) 0%,
+          var(--blue-dark) 100%
+        );
+        color: var(--white);
+        padding: 4rem;
+        border-radius: 24px;
+        margin-top: 3rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(42, 56, 112, 0.3);
+      }
+
+      .budget-container::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(190, 140, 63, 0.1) 0%,
+          transparent 70%
+        );
+        animation: rotate 30s linear infinite;
+      }
+
+      .budget-item {
+        margin-bottom: 2.5rem;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .budget-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .budget-item:hover {
+        background: rgba(255, 255, 255, 0.12);
+        transform: translateX(10px);
+      }
+
+      .budget-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .budget-item h3 {
+        color: var(--gold);
+        margin-bottom: 1.2rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        font-family: "Playfair Display", serif;
+      }
+
+      .budget-item p {
+        line-height: 1.9;
+        font-size: 1.1rem;
+        opacity: 0.95;
+      }
+
+      .highlight {
+        color: var(--gold);
+        font-weight: 700;
+        font-size: 1.3rem;
+        text-shadow: 0 0 20px rgba(190, 140, 63, 0.3);
+      }
+
+      /* Footer */
+      footer {
+        background: linear-gradient(
+          135deg,
+          var(--blue-dark) 0%,
+          var(--blue) 100%
+        );
+        color: var(--white);
+        padding: 4rem 2rem;
+        text-align: center;
+        position: relative;
+      }
+
+      .footer-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+      }
+
+      .footer-section {
+        text-align: left;
+      }
+
+      .footer-section h3 {
+        color: var(--gold);
+        margin-bottom: 1.5rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        font-family: "Playfair Display", serif;
+      }
+
+      .footer-section p {
+        line-height: 2;
+        font-size: 1rem;
+        opacity: 0.9;
+      }
+
+      .footer-section a {
+        color: var(--gold);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .footer-section a:hover {
+        color: var(--gold-light);
+        transform: translateX(5px);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 968px) {
         .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-placeholder {
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(190, 140, 63, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .logo-placeholder:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(190, 140, 63, 0.4);
+          padding: 0 2rem;
         }
 
         nav {
-            display: flex;
-            gap: 2rem;
+          gap: 1rem;
         }
 
         nav a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: color 0.3s ease;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-light));
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--gold);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 50%, var(--blue) 100%);
-            background-size: 200% 200%;
-            animation: gradientShift 15s ease infinite;
-            color: var(--white);
-            padding: 12rem 2rem 6rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(190, 140, 63, 0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
+          font-size: 0.85rem;
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -1px;
-            animation: fadeInUp 1s ease-out;
-            text-shadow: 0 0 30px rgba(190, 140, 63, 0.3);
+          font-size: 3rem;
         }
 
         .hero p {
-            font-size: 1.4rem;
-            line-height: 1.8;
-            opacity: 0.95;
-            animation: fadeInUp 1s ease-out 0.2s both;
-            font-weight: 300;
-        }
-
-        /* Decorative Elements */
-        .decorative-line {
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin: 2rem auto;
-            border-radius: 2px;
-            animation: expandLine 1.5s ease-out 0.5s both;
-        }
-
-        @keyframes expandLine {
-            from { width: 0; opacity: 0; }
-            to { width: 100px; opacity: 1; }
-        }
-
-        /* Container */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Section */
-        section {
-            padding: 6rem 0;
-            position: relative;
-        }
-
-        section:nth-child(even) {
-            background: linear-gradient(180deg, var(--gray-light) 0%, var(--white) 100%);
+          font-size: 1.2rem;
         }
 
         .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: var(--blue);
-            margin-bottom: 4rem;
-            text-align: center;
-            position: relative;
-            padding-bottom: 2rem;
-            font-weight: 700;
-            letter-spacing: -1px;
+          font-size: 2.5rem;
         }
 
-        .section-title::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-light));
-            border-radius: 2px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            border-radius: 2px;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(42, 56, 112, 0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(190, 140, 63, 0.1);
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-light));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-card::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(190, 140, 63, 0.05) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .service-card:hover::after {
-            opacity: 1;
-        }
-
-        .service-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(42, 56, 112, 0.15);
-            border-color: var(--gold);
-        }
-
-        .service-card h3 {
-            color: var(--blue);
-            margin-bottom: 0;
-            font-size: 1.4rem;
-            font-weight: 600;
-            position: relative;
-            z-index: 1;
-            transition: color 0.3s ease;
-        }
-
-        .service-card:hover h3 {
-            color: var(--gold);
-        }
-
-        /* Proposal Section */
-        .proposal-content {
-            background: var(--white);
-            padding: 4rem;
-            border-radius: 24px;
-            box-shadow: 0 20px 60px rgba(42, 56, 112, 0.1);
-            margin-top: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .proposal-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 6px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--gold), var(--gold-light));
-            border-radius: 0 4px 4px 0;
-        }
-
-        .proposal-item {
-            margin-bottom: 3rem;
-            padding-left: 2rem;
-            position: relative;
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.6s ease;
-        }
-
-        .proposal-item.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .proposal-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.5rem;
-            width: 12px;
-            height: 12px;
-            background: var(--gold);
-            border-radius: 50%;
-            box-shadow: 0 0 20px rgba(190, 140, 63, 0.5);
-        }
-
-        .proposal-item h3 {
-            color: var(--blue);
-            margin-bottom: 1rem;
-            font-size: 1.6rem;
-            font-weight: 600;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .proposal-item p {
-            color: var(--gray);
-            line-height: 1.9;
-            font-size: 1.1rem;
-        }
-
-        .proposal-item:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Action Plan */
+        .services-grid,
         .steps-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-            position: relative;
+          grid-template-columns: 1fr;
         }
 
-        .steps-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--gold), transparent);
-            opacity: 0.3;
-            z-index: 0;
-        }
-
-        .step-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(42, 56, 112, 0.08);
-            position: relative;
-            border: 2px solid transparent;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            opacity: 0;
-            transform: translateY(30px);
-            z-index: 1;
-        }
-
-        .step-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .step-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(42, 56, 112, 0.15);
-            border-color: var(--gold);
-        }
-
-        .step-number {
-            position: absolute;
-            top: -25px;
-            left: 2.5rem;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            color: var(--white);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.4rem;
-            box-shadow: 0 8px 25px rgba(190, 140, 63, 0.4);
-            border: 4px solid var(--white);
-            transition: all 0.3s ease;
-        }
-
-        .step-card:hover .step-number {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 12px 35px rgba(190, 140, 63, 0.5);
-        }
-
-        .step-card h3 {
-            color: var(--blue);
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-
-        .step-card p {
-            color: var(--gray);
-            line-height: 1.9;
-            font-size: 1rem;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: var(--blue);
-            margin-bottom: 3rem;
-            font-size: 1.3rem;
-            font-weight: 500;
-            opacity: 0.8;
-            letter-spacing: 1px;
-        }
-
-        /* Budget Section */
+        .proposal-content,
         .budget-container {
-            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
-            color: var(--white);
-            padding: 4rem;
-            border-radius: 24px;
-            margin-top: 3rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(42, 56, 112, 0.3);
+          padding: 2.5rem 2rem;
         }
 
-        .budget-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(190, 140, 63, 0.1) 0%, transparent 70%);
-            animation: rotate 30s linear infinite;
+        .container {
+          padding: 0 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          padding: 10rem 1.5rem 4rem;
         }
 
-        .budget-item {
-            margin-bottom: 2.5rem;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            z-index: 1;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
+        .hero h1 {
+          font-size: 2.5rem;
         }
 
-        .budget-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .budget-item:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateX(10px);
-        }
-
-        .budget-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .budget-item h3 {
-            color: var(--gold);
-            margin-bottom: 1.2rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .budget-item p {
-            line-height: 1.9;
-            font-size: 1.1rem;
-            opacity: 0.95;
-        }
-
-        .highlight {
-            color: var(--gold);
-            font-weight: 700;
-            font-size: 1.3rem;
-            text-shadow: 0 0 20px rgba(190, 140, 63, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
-            color: var(--white);
-            padding: 4rem 2rem;
-            text-align: center;
-            position: relative;
+        .section-title {
+          font-size: 2rem;
         }
 
         .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+          grid-template-columns: 1fr;
+          text-align: center;
         }
 
         .footer-section {
-            text-align: left;
+          text-align: center;
         }
+      }
 
-        .footer-section h3 {
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            font-size: 1.4rem;
-            font-weight: 600;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .footer-section p {
-            line-height: 2;
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        .footer-section a {
-            color: var(--gold);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .footer-section a:hover {
-            color: var(--gold-light);
-            transform: translateX(5px);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .header-container {
-                padding: 0 2rem;
-            }
-
-            nav {
-                gap: 1rem;
-            }
-
-            nav a {
-                font-size: 0.85rem;
-            }
-
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .services-grid,
-            .steps-container {
-                grid-template-columns: 1fr;
-            }
-
-            .proposal-content,
-            .budget-container {
-                padding: 2.5rem 2rem;
-            }
-
-            .container {
-                padding: 0 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 10rem 1.5rem 4rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-section {
-                text-align: center;
-            }
-        }
-
-        /* Scroll Progress Bar */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-light));
-            z-index: 9999;
-            transition: width 0.1s ease;
-        }
+      /* Scroll Progress Bar */
+      .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        z-index: 9999;
+        transition: width 0.1s ease;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="bg-pattern"></div>
     <div class="scroll-progress"></div>
 
     <!-- Header -->
     <header id="header">
-        <div class="header-container">
-            <div class="logo-placeholder">LOGO EMPRESA</div>
-            <nav>
-                <a href="#servicos">Serviços</a>
-                <a href="#proposta">Proposta</a>
-                <a href="#plano">Plano de Ação</a>
-                <a href="#orcamento">Orçamento</a>
-            </nav>
+      <div class="header-container">
+        <!-- <div class="logo-placeholder">LOGO EMPRESA</div> -->
+        <div class="logo-container">
+          <img
+            src="fcf54fcd-b290-4e09-97a6-0e6dab580c79-removebg-preview.png"
+            alt="Decisão Brasil RH"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'logo-text\'>DECISÃO BRASIL RH</div>';"
+          />
         </div>
+        <nav>
+          <a href="#servicos">Serviços</a>
+          <a href="#proposta">Proposta</a>
+          <a href="#plano">Plano de Ação</a>
+          <a href="#orcamento">Orçamento</a>
+        </nav>
+      </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Talent Hunting</h1>
-            <div class="decorative-line"></div>
-            <p>Processo especializado de Headhunter de forma ativa e personalizada na busca de encontrar e atrair profissionais para ocupar cargos especializados.</p>
-        </div>
+      <div class="hero-content">
+        <h1>Talent Hunting</h1>
+        <div class="decorative-line"></div>
+        <p>
+          Processo especializado de Headhunter de forma ativa e personalizada na
+          busca de encontrar e atrair profissionais para ocupar cargos
+          especializados.
+        </p>
+      </div>
     </section>
 
     <!-- Serviços -->
     <section id="servicos">
-        <div class="container">
-            <h2 class="section-title">NOSSOS SERVIÇOS</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Headhunter Empresas</h3>
-                </div>
-                <div class="service-card">
-                    <h3>Outplacement</h3>
-                </div>
-                <div class="service-card">
-                    <h3>Treinamento e Desenvolvimento</h3>
-                </div>
-                <div class="service-card">
-                    <h3>Metodologia STAR</h3>
-                </div>
-                <div class="service-card">
-                    <h3>Consultoria de Processos PDI</h3>
-                </div>
-                <div class="service-card">
-                    <h3>R&S</h3>
-                </div>
-            </div>
+      <div class="container">
+        <h2 class="section-title">NOSSOS SERVIÇOS</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Headhunter Empresas</h3>
+          </div>
+          <div class="service-card">
+            <h3>Outplacement</h3>
+          </div>
+          <div class="service-card">
+            <h3>Treinamento e Desenvolvimento</h3>
+          </div>
+          <div class="service-card">
+            <h3>Metodologia STAR</h3>
+          </div>
+          <div class="service-card">
+            <h3>Consultoria de Processos PDI</h3>
+          </div>
+          <div class="service-card">
+            <h3>R&S</h3>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Proposta -->
     <section id="proposta">
-        <div class="container">
-            <h2 class="section-title">PROPOSTA</h2>
-            <div class="proposal-content">
-                <div class="proposal-item">
-                    <h3>Talent Hunting</h3>
-                    <p>Processo especializado de Headhunter de forma ativa e personalizada na busca de encontrar e atrair profissional para ocupar cargo especializado.</p>
-                </div>
-                <div class="proposal-item">
-                    <h3>Propósito</h3>
-                    <p>Foco em pessoas e organização, atuando no desenvolvimento humano na prática dos processos.</p>
-                </div>
-                <div class="proposal-item">
-                    <h3>Objetivo Principal</h3>
-                    <p>Vendedor Interno (1), Vendedor Externo (1) com competências e habilidades específicos.</p>
-                </div>
-                <div class="proposal-item">
-                    <h3>Processo Alternativo</h3>
-                    <p>Garantir de forma estratégica o melhor alinhamento entre profissional e necessidade da empresa.</p>
-                </div>
-                <div class="proposal-item">
-                    <h3>Garantia</h3>
-                    <p><span class="highlight">90 dias na substituição do candidato sem custo adicional.</span></p>
-                </div>
-            </div>
+      <div class="container">
+        <h2 class="section-title">PROPOSTA</h2>
+        <div class="proposal-content">
+          <div class="proposal-item">
+            <h3>Talent Hunting</h3>
+            <p>
+              Processo especializado de Headhunter de forma ativa e
+              personalizada na busca de encontrar e atrair profissional para
+              ocupar cargo especializado.
+            </p>
+          </div>
+          <div class="proposal-item">
+            <h3>Propósito</h3>
+            <p>
+              Foco em pessoas e organização, atuando no desenvolvimento humano
+              na prática dos processos.
+            </p>
+          </div>
+          <div class="proposal-item">
+            <h3>Objetivo Principal</h3>
+            <p>
+              Vendedor Interno (1), Vendedor Externo (1) com competências e
+              habilidades específicos.
+            </p>
+          </div>
+          <div class="proposal-item">
+            <h3>Processo Alternativo</h3>
+            <p>
+              Garantir de forma estratégica o melhor alinhamento entre
+              profissional e necessidade da empresa.
+            </p>
+          </div>
+          <div class="proposal-item">
+            <h3>Garantia</h3>
+            <p>
+              <span class="highlight"
+                >90 dias na substituição do candidato sem custo adicional.</span
+              >
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Plano de Ação -->
     <section id="plano">
-        <div class="container">
-            <h2 class="section-title">PLANO DE AÇÃO</h2>
-            <p class="subtitle">ETAPAS DO PROCESSO</p>
-            <div class="steps-container">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3>Mapeamento de mercado</h3>
-                    <p>Pesquisar, buscar e identificar profissionais mais qualificados para uma vaga específica.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3>Prospecção ativa</h3>
-                    <p>Aborda talentos de forma estratégica.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3>Entrevistas e triagem</h3>
-                    <p>Avalia as competências técnicas e comportamentais dos candidatos.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <h3>Negociação</h3>
-                    <p>Atua como intermediador entre empresa e candidato para alinhar expectativas salariais e benefícios.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">5</div>
-                    <h3>Acompanhamento</h3>
-                    <p>Atua no processo de onboarding, garantindo integração do novo colaborador.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">6</div>
-                    <h3>Diagnóstico</h3>
-                    <p>Interpretação do cargo junto ao gestor ou líder direto.</p>
-                </div>
-            </div>
+      <div class="container">
+        <h2 class="section-title">PLANO DE AÇÃO</h2>
+        <p class="subtitle">ETAPAS DO PROCESSO</p>
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Mapeamento de mercado</h3>
+            <p>
+              Pesquisar, buscar e identificar profissionais mais qualificados
+              para uma vaga específica.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Prospecção ativa</h3>
+            <p>Aborda talentos de forma estratégica.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Entrevistas e triagem</h3>
+            <p>
+              Avalia as competências técnicas e comportamentais dos candidatos.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Negociação</h3>
+            <p>
+              Atua como intermediador entre empresa e candidato para alinhar
+              expectativas salariais e benefícios.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">5</div>
+            <h3>Acompanhamento</h3>
+            <p>
+              Atua no processo de onboarding, garantindo integração do novo
+              colaborador.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">6</div>
+            <h3>Diagnóstico</h3>
+            <p>Interpretação do cargo junto ao gestor ou líder direto.</p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Orçamento -->
     <section id="orcamento">
-        <div class="container">
-            <h2 class="section-title" style="color: var(--white);">ORÇAMENTO</h2>
-            <div class="budget-container">
-                <div class="budget-item">
-                    <h3>INVESTIMENTO</h3>
-                    <p><strong>Custos dos processos:</strong> Cobramos o valor de 70% da remuneração baseado em R$ 4.000,00 por processo e assessoria profissional. <span class="highlight">Custo total: R$ 5.600,00</span></p>
-                </div>
-                <div class="budget-item">
-                    <h3>Custo de logística</h3>
-                    <p>Atuação presencial na região de prospecção, divulgação, Recrutamento e Seleção (repasse de custo, caso haja deslocamento de cidade ou região)</p>
-                </div>
-                <div class="budget-item">
-                    <h3>Forma de pagamento</h3>
-                    <p><span class="highlight">50% inicial e 50% quando o profissional iniciar o trabalho.</span></p>
-                </div>
-                <div class="budget-item">
-                    <h3>Informação Confidencial</h3>
-                    <p>Significará em cuidar para que as informações confidenciais fiquem restritas ao conhecimento tão somente das pessoas que estejam diretamente envolvidos nas discussões, análises, reuniões e negócios, devendo cientificá-los da existência deste Termo e da natureza confidencial destas informações.</p>
-                </div>
-            </div>
+      <div class="container">
+        <h2 class="section-title" style="color: var(--white)">ORÇAMENTO</h2>
+        <div class="budget-container">
+          <div class="budget-item">
+            <h3>INVESTIMENTO</h3>
+            <p>
+              <strong>Custos dos processos:</strong> Cobramos o valor de 70% da
+              remuneração baseado em R$ 4.000,00 por processo e assessoria
+              profissional.
+              <span class="highlight">Custo total: R$ 5.600,00</span>
+            </p>
+          </div>
+          <div class="budget-item">
+            <h3>Custo de logística</h3>
+            <p>
+              Atuação presencial na região de prospecção, divulgação,
+              Recrutamento e Seleção (repasse de custo, caso haja deslocamento
+              de cidade ou região)
+            </p>
+          </div>
+          <div class="budget-item">
+            <h3>Forma de pagamento</h3>
+            <p>
+              <span class="highlight"
+                >50% inicial e 50% quando o profissional iniciar o
+                trabalho.</span
+              >
+            </p>
+          </div>
+          <div class="budget-item">
+            <h3>Informação Confidencial</h3>
+            <p>
+              Significará em cuidar para que as informações confidenciais fiquem
+              restritas ao conhecimento tão somente das pessoas que estejam
+              diretamente envolvidos nas discussões, análises, reuniões e
+              negócios, devendo cientificá-los da existência deste Termo e da
+              natureza confidencial destas informações.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contato</h3>
-                <p>
-                    <strong>Salvador - BA</strong><br>
-                    Av. Tancredo Neves, 1283, Edif. Ômega, Sala 902<br>
-                    Caminho das Árvores, Salvador - BA
-                </p>
-                <p style="margin-top: 1.5rem;">
-                    <strong>Lauro de Freitas - BA</strong><br>
-                    Edif. Villas Empresarial I - Av. Luiz Tarquínio Pontes, 2580 - Sala 311<br>
-                    Vilas do Atlântico, Lauro de Freitas - BA
-                </p>
-            </div>
-            <div class="footer-section">
-                <h3>Telefones</h3>
-                <p>
-                    <a href="tel:7133401826">(71) 3340.1826</a><br>
-                    <a href="tel:71999912091">(71) 99991-2091</a>
-                </p>
-            </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contato</h3>
+          <p>
+            <strong>Salvador - BA</strong><br />
+            Av. Tancredo Neves, 1283, Edif. Ômega, Sala 902<br />
+            Caminho das Árvores, Salvador - BA
+          </p>
+          <p style="margin-top: 1.5rem">
+            <strong>Lauro de Freitas - BA</strong><br />
+            Edif. Villas Empresarial I - Av. Luiz Tarquínio Pontes, 2580 - Sala
+            311<br />
+            Vilas do Atlântico, Lauro de Freitas - BA
+          </p>
         </div>
+        <div class="footer-section">
+          <h3>Telefones</h3>
+          <p>
+            <a href="tel:7133401826">(71) 3340.1826</a><br />
+            <a href="tel:71999912091">(71) 99991-2091</a>
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script>
-        // Scroll Progress Bar
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.body.offsetHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            document.querySelector('.scroll-progress').style.width = scrollPercent + '%';
+      // Scroll Progress Bar
+      window.addEventListener("scroll", () => {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.offsetHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        document.querySelector(".scroll-progress").style.width =
+          scrollPercent + "%";
+      });
+
+      // Header scroll effect
+      const header = document.getElementById("header");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add("visible");
+            }, index * 100);
+          }
+        });
+      }, observerOptions);
+
+      // Observe all animated elements
+      document
+        .querySelectorAll(
+          ".service-card, .proposal-item, .step-card, .budget-item"
+        )
+        .forEach((el) => {
+          observer.observe(el);
         });
 
-        // Header scroll effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 100);
-                }
+      // Smooth scroll for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const headerHeight = header.offsetHeight;
+            const targetPosition = target.offsetTop - headerHeight;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth",
             });
-        }, observerOptions);
-
-        // Observe all animated elements
-        document.querySelectorAll('.service-card, .proposal-item, .step-card, .budget-item').forEach(el => {
-            observer.observe(el);
+          }
         });
+      });
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerHeight = header.offsetHeight;
-                    const targetPosition = target.offsetTop - headerHeight;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Parallax effect for hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero && scrolled < hero.offsetHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
+      // Parallax effect for hero
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector(".hero");
+        if (hero && scrolled < hero.offsetHeight) {
+          hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
