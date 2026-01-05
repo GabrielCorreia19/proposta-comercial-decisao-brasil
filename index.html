@@ -174,10 +174,12 @@
         background-size: 200% 200%;
         animation: gradientShift 15s ease infinite;
         color: var(--white);
-        padding: 12rem 2rem 6rem;
+        padding: 6rem 2rem 4rem;
         text-align: center;
         position: relative;
         overflow: hidden;
+        z-index: 10;
+        margin-top: 0;
       }
 
       @keyframes gradientShift {
@@ -200,9 +202,10 @@
         background: radial-gradient(
           circle,
           rgba(190, 140, 63, 0.1) 0%,
-          transparent 70%
+          transparent 50%
         );
         animation: rotate 20s linear infinite;
+        z-index: 0;
       }
 
       @keyframes rotate {
@@ -216,7 +219,7 @@
 
       .hero-content {
         position: relative;
-        z-index: 1;
+        z-index: 2;
         max-width: 900px;
         margin: 0 auto;
       }
@@ -244,6 +247,8 @@
         opacity: 0.95;
         animation: fadeInUp 1s ease-out 0.2s both;
         font-weight: 300;
+        color: #2a3870;
+        font-weight: bold;
       }
 
       /* Decorative Elements */
@@ -285,6 +290,11 @@
       section {
         padding: 6rem 0;
         position: relative;
+        z-index: 1;
+      }
+
+      section.hero {
+        z-index: 10;
       }
 
       section:nth-child(even) {
@@ -293,6 +303,16 @@
           var(--gray-light) 0%,
           var(--white) 100%
         );
+      }
+
+      /* Ensure hero stays above other sections */
+      section.hero {
+        z-index: 10;
+      }
+
+      /* First section after hero should not overlap */
+      section:not(.hero) {
+        z-index: 1;
       }
 
       .section-title {
@@ -963,7 +983,7 @@
     <!-- Orçamento -->
     <section id="orcamento">
       <div class="container">
-        <h2 class="section-title" style="color: var(--white)">ORÇAMENTO</h2>
+        <h2 class="section-title">ORÇAMENTO</h2>
         <div class="budget-container">
           <div class="budget-item">
             <h3>INVESTIMENTO</h3>
@@ -1093,14 +1113,7 @@
         });
       });
 
-      // Parallax effect for hero
-      window.addEventListener("scroll", () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector(".hero");
-        if (hero && scrolled < hero.offsetHeight) {
-          hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-      });
+      // Parallax effect removed to prevent overlap issues
     </script>
   </body>
 </html>
